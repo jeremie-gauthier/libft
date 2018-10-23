@@ -1,11 +1,11 @@
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memalloc(size_t size)
 {
 	void	*block;
 
 	if (!(block = (void*)malloc(sizeof(*block) * size)))
-		return (0);
-	block = NULL;
+		return (NULL);
+	ft_bzero(block, size);
 	return (block);
 }
