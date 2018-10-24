@@ -25,8 +25,9 @@ char	ft_ret_rotone_even(unsigned int n, char c)
 
 int		main(void)
 {
-	char	*test;
-	char	*testbis;
+	char	*test = NULL;
+	char	*testbis = NULL;
+	char	**tab = NULL;
 
 	printf("TESTS FOR FT_MEMALLOC\n");
 	test = (char*) ft_memalloc(6);
@@ -72,6 +73,52 @@ int		main(void)
 	printf("TESTS FOR FT_STRMAPI\n");
 	testbis = ft_strmapi(test, &ft_ret_rotone_even);
 	printf("Original string : %s Became : %s\n", test, testbis);
+
+	ft_strdel(&test);
+	ft_strdel(&testbis);
+	
+	printf("TESTS FOR FT_STREQU\n");
+	if (ft_strequ("Hello World !", "Hello World !") == 1 && ft_strequ("Hi", "Ho") == 0)
+		printf("Success ! :)\n");
+	else
+	{
+		printf("Failure :(\n");
+		return (1);
+	}
+
+	printf("TESTS FOR FT_STRNEQU\n");
+	if (ft_strnequ("Hello World !", "Hello W !", 6) == 1 && ft_strnequ("Hi", "H", 2) == 0)
+		printf("Success ! :)\n");
+	else
+	{
+		printf("Failure :(\n");
+		return (1);
+	}
+	printf("TESTS FOR FT_STRSUB\n");
+	test = ft_strsub("Hello World.", 6, 10);
+	testbis = ft_strsub("Hello World.", 0, 5);
+	printf("|%s| && |%s|\n", test, testbis);
+
+	ft_strdel(&test);
+	ft_strdel(&testbis);
+	printf("TESTS FOR FT_STRJOIN\n");
+	test = ft_strjoin("Hello", " World !");
+	printf("Trying to join |Hello| and | World !|\nThe result is : |%s|\n", test);
+
+	ft_strdel(&test);
+	printf("TESTS FOR FT_STRTRIM\n");
+	test = ft_strtrim("       \n\nBonjour les amis   \t\n");
+	printf("Trying to trim : |       \t\tBonjour les amis   \t\n|\nThe result is : |%s|\n", test);
+
+	ft_strdel(&test);
+	printf("TESTS FOR FT_STRSPLIT\n");
+	tab = ft_strsplit("*salut*les***etudiants*", '*');
+	ft_printtab(tab);
+
+	printf("TESTS FOR FT_ITOA\n");
+	test = ft_itoa(-1234);
+	if (ft_strequ(test, "-1234"))
+		printf("Success ! :)\n");
 
 	return (0);
 }

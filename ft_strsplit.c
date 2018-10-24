@@ -1,9 +1,9 @@
 #include "libft.h"
 
-static int	count_words(char const *s, char c)
+static unsigned int	count_words(char const *s, char c)
 {
-	int	words;
-	int	in_word;
+	unsigned int	words;
+	unsigned int	in_word;
 
 	words = 0;
 	in_word = 0;
@@ -21,19 +21,31 @@ static int	count_words(char const *s, char c)
 	return (words);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char				**ft_strsplit(char const *s, char c)
 {
-	int		len;
-	char	**tab;
+	unsigned int		lentab;
+	unsigned int		tmp;
+	size_t				lenword;
+	char				**tab;
 
-	len = count_words(s, c);
-	if (!(tab = (char*)malloc(sizeof(*tab) * (len + 1))))
+	lentab = count_words(s, c);
+	tmp = lentab;
+	if (!(tab = (char**)malloc(sizeof(*tab) * (lentab + 1))))
 		return (NULL);
-	while (*tab)
+	while (tmp--)
 	{
-		while (*tab == c)
-			tab++;
-		//Utiliser strchr pour trouver le prochain "char c"
-		//Coder un "ft_strndup" qui alloue la memoire et copie uniquement les n premiers chars
+		while (*s == c)
+			s++;
+		if (!ft_strchr(s, c))
+			*tab = ft_strdup(s);
+		else
+		{
+			lenword = ft_strchr(s, c) - s;
+			*tab = ft_strndup(s, lenword);
+		}
+		tab++;
+		s += lenword + 1;
 	}
+	*tab = '\0';
+	return (tab - lentab);
 }
