@@ -51,13 +51,16 @@ SRCS	=	ft_memset.c		\
 			ft_putchar_fd.c	\
 			ft_putstr_fd.c	\
 			ft_putendl_fd.c	\
-			ft_putnbr_fd.c
+			ft_putnbr_fd.c	\
+			ft_strndup.c	\
+			ft_printtab.c	\
+			ft_strrev.c
 
 OBJS	=	$(SRCS:.c=.o)
 
 CC		=	gcc
 
-CFLAGS	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra -c
 
 LIB		=	-L libft.h
 
@@ -66,16 +69,23 @@ RM		=	rm -f
 CLEAN	=	clean
 
 all		:
+			@echo "Compilation in progress..."
 			@make $(NAME)
 
 $(NAME)	:	$(OBJS)
-			$(CC) $(CFLAGS) $(SRCS)
-			ar rc $(NAME) $(OBJS)
-			ranlib $(NAME)
+			@$(CC) $(CFLAGS) $(SRCS) $(LIB)
+			@ar rc $(NAME) $(OBJS)
+			@ranlib $(NAME)
+			@echo "The libft.a file has been successfully created."
 
-clean	:	$(RM) $(OBJS)
+clean	:	
+			@$(RM) $(OBJS)
+			@echo "All .o files have been deleted."
 
 fclean	:	clean
-			$(RM) $(NAME)
+			@$(RM) $(NAME)
+			@echo "The libft.a file has been deleted."
 
 re		:	fclean all
+
+$(V).SILENT:

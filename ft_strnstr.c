@@ -11,7 +11,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	while (*s1 && (n - (len - 1)) > 0)
 	{
 		if (*s1 == *s2)
-			if (!ft_strncmp(s1, s2, len - 1))
+			if (!ft_strncmp(s1, s2, len))
 				return ((char*) s1);
 		s1++;
 		n--;

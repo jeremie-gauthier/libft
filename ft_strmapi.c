@@ -2,20 +2,17 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*ret;
-	char	*sdup;
-	size_t	len;
+	char			*ret;
+	unsigned int	i;
 
-	sdup = ft_strdup(s);
-	len = ft_strlen(s);
-	if (!(ret = (char*)malloc(sizeof(*ret) * (len + 1))))
+	i = 0;
+	if (!(ret = (char*)malloc(sizeof(*ret) * (ft_strlen(s) + 1))))
 		return (NULL);
-	while (*sdup)
+	while (s[i])
 	{
-		*ret = f(sdup - s, *sdup);
-		ret++;
-		sdup++;
+		ret[i] = f(i, s[i]);
+		i++;
 	}
-	*ret = '\0';
-	return (ret - len);
+	ret[i] = '\0';
+	return (ret);
 }

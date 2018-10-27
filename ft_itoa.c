@@ -4,9 +4,16 @@ static unsigned int	ft_getlen(int nb, int *isneg)
 {
 	unsigned int	len;
 
+	if (nb == 0)
+		return (1);
 	len = 0;
 	if (nb < 0)
 	{
+		if (nb == -2147483648)
+		{
+			nb = -147483648;
+			len++;
+		}
 		nb = -nb;
 		*isneg = 1;
 	}
@@ -29,6 +36,10 @@ char				*ft_itoa(int n)
 	len = ft_getlen(n, &isneg);
 	if (!(str = (char*)malloc(sizeof(*str) * (len + isneg + 1))))
 		return (NULL);
+	if (n == -2147483648)
+		return (str = "-2147483648\0");
+	if (n == 0)
+		return (str = "0\0");
 	if (isneg)
 	{
 		*str++ = '-';

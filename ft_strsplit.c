@@ -1,9 +1,9 @@
 #include "libft.h"
 
-static unsigned int	count_words(char const *s, char c)
+static size_t	count_words(char const *s, char c)
 {
-	unsigned int	words;
-	unsigned int	in_word;
+	size_t	words;
+	size_t	in_word;
 
 	words = 0;
 	in_word = 0;
@@ -21,31 +21,46 @@ static unsigned int	count_words(char const *s, char c)
 	return (words);
 }
 
-char				**ft_strsplit(char const *s, char c)
+static char		*ft_strcdup(char const *s, char c)
 {
-	unsigned int		lentab;
-	unsigned int		tmp;
-	size_t				lenword;
-	char				**tab;
+	size_t	len;
+	size_t	i;
+	char	*dup;
 
+	len = 0;
+	i = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	if (!(dup = (char*)malloc(sizeof(*dup) * (len + 1))))
+		return (NULL);
+	while (i < len)
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}
+
+char			**ft_strsplit(char const *s, char c)
+{
+	size_t	i;
+	size_t	lentab;
+	char	**tab;
+
+	i = 0;
 	lentab = count_words(s, c);
-	tmp = lentab;
 	if (!(tab = (char**)malloc(sizeof(*tab) * (lentab + 1))))
 		return (NULL);
-	while (tmp--)
+	while (i < lentab)
 	{
 		while (*s == c)
 			s++;
-		if (!ft_strchr(s, c))
-			*tab = ft_strdup(s);
-		else
-		{
-			lenword = ft_strchr(s, c) - s;
-			*tab = ft_strndup(s, lenword);
-		}
-		tab++;
-		s += lenword + 1;
+		tab[i] = ft_strcdup(s, c);
+		while (*s != c)
+			s++;
+		i++;
 	}
-	*tab = '\0';
-	return (tab - lentab);
+	tab[i] = 0;
+	return (tab);
 }

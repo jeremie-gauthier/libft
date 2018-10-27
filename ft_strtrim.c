@@ -1,30 +1,22 @@
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strtrim(char const *s)
 {
 	char		*trimmed;
-	char const	*firstchar;
-	char const	*lastchar;
-	size_t		len;
+	char const	*first;
+	char const	*last;
 
 	while (*s == ' ' || *s == '\n' || *s == '\t')
 		s++;
-	firstchar = s;
+	if (*s == '\0')
+		return ("");
+	first = s;
 	while (*s)
 	{
 		if (*s != ' ' && *s != '\n' && *s != '\t')
-			lastchar = s;
+			last = s;
 		s++;
 	}
-	len = lastchar - firstchar;
-	if (!(trimmed = (char*)malloc(sizeof(*trimmed) * (len + 1))))
-		return (NULL);
-	while (firstchar <= lastchar)
-	{
-		*trimmed = *firstchar;
-		trimmed++;
-		firstchar++;
-	}
-	*trimmed = '\0';
-	return (trimmed - (len + 1));
+	trimmed = ft_strndup(first, (last - first) + 1);
+	return (trimmed);
 }
