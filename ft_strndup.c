@@ -3,13 +3,16 @@
 char	*ft_strndup(const char *s, size_t n)
 {
 	char	*sdup;
-	size_t	len;
+	size_t	i;
 
-	len = n;
+	i = 0;
 	if (!(sdup = (char*)malloc(sizeof(*sdup) * (n + 1))))
 		return (NULL);
-	while (*s && n--)
-		*sdup++ = *s++;
-	*sdup = '\0';
-	return (sdup - len);
+	while (s[i] && i < n)
+	{
+		sdup[i] = s[i];
+		i++;
+	}
+	sdup[i] = '\0';
+	return (sdup);
 }

@@ -52,9 +52,32 @@ SRCS	=	ft_memset.c		\
 			ft_putstr_fd.c	\
 			ft_putendl_fd.c	\
 			ft_putnbr_fd.c	\
+			ft_lstnew.c		\
+			ft_lstdelone.c	\
+			ft_lstdel.c		\
+			ft_lstadd.c		\
+			ft_lstiter.c	\
+			ft_lstmap.c		\
+			ft_isblank.c	\
+			ft_iscntrl.c	\
+			ft_isgraph.c	\
+			ft_islower.c	\
+			ft_isspace.c	\
+			ft_isupper.c	\
+			ft_isxdigit.c	\
+			ft_str_is_alpha.c	\
+			ft_str_is_lowercase.c	\
+			ft_str_is_numeric.c	\
+			ft_str_is_printable.c	\
+			ft_str_is_uppercase.c	\
+			ft_strcapitalize.c	\
+			ft_strlowcase.c	\
+			ft_strupcase.c	\
+			ft_strcasecmp.c	\
 			ft_strndup.c	\
 			ft_printtab.c	\
 			ft_strrev.c
+
 
 OBJS	=	$(SRCS:.c=.o)
 
