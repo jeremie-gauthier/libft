@@ -86,7 +86,10 @@ char				*ft_strcapitalize(char *s);
 char				*ft_strlowcase(char *str);
 char				*ft_strupcase(char *s);
 int					ft_strcasecmp(const char *s1, const char *s2);
+int					ft_strncasecmp(const char *s1, const char *s2, size_t n);
+char				*ft_strcasestr(const char *s1, const char *s2);
 char				*ft_strndup(const char *s, size_t n);
+size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 void				ft_printtab(char **tab);
 void				ft_strrev(char *s);
 

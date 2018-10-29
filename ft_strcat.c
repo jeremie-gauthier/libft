@@ -1,16 +1,12 @@
 char	*ft_strcat(char *dest, const char *src)
 {
-	char	*iter;
+	char	*d;
 
-	iter = dest;
-	while (*iter)
-		iter++;
+	d = dest;
+	while (*d)
+		d++;
 	while (*src)
-	{
-		*iter = *src;
-		src++;
-		iter++;
-	}
-	*iter = '\0';
+		*d++ = *src++;
+	*d = '\0';
 	return (dest);
 }
