@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:30:55 by jergauth          #+#    #+#             */
-/*   Updated: 2018/11/07 11:30:57 by jergauth         ###   ########.fr       */
+/*   Updated: 2018/11/09 22:34:15 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (write(fd, &c, 1) == -1)
-		write(2, "Writing fail\n", 13);
+	write(fd, &c, 1);
 }
