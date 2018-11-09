@@ -1,29 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/07 11:30:08 by jergauth          #+#    #+#             */
+/*   Updated: 2018/11/07 18:46:52 by jergauth         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memmove(void *s1, const void *s2, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	char		*buf;
-	char 		*dest;
-	const char	*src;
-	size_t		i;
-	
-	i = 0;
-	dest = (char*) s1;
-	src = (const char*) s2;
-	if (!(buf = (char*)malloc(sizeof(*buf) * (n + 1))))
-		return (NULL);
-	while (i < n)
-	{
-		buf[i] = src[i];
-		i++;
-	}
-	buf[i] = '\0';
-	i = 0;
-	while (i < n)
-	{
-		dest[i] = buf[i];
-		i++;
-	}
-	ft_strdel(&buf);
-	return (s1);
+	unsigned char		*pdst;
+	const unsigned char	*psrc;
+
+	pdst = (unsigned char*)dst;
+	psrc = (const unsigned char*)src;
+	if (dst == src || !n)
+		return (dst);
+	if (src > dst)
+		while (n--)
+			*pdst++ = *psrc++;
+	else
+		while (n--)
+			pdst[n] = psrc[n];
+	return (dst);
 }

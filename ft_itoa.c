@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/07 11:19:46 by jergauth          #+#    #+#             */
+/*   Updated: 2018/11/08 11:49:43 by jergauth         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static unsigned int	ft_getlen(int nb, int *isneg)
@@ -9,11 +21,6 @@ static unsigned int	ft_getlen(int nb, int *isneg)
 	len = 0;
 	if (nb < 0)
 	{
-		if (nb == -2147483648)
-		{
-			nb = -147483648;
-			len++;
-		}
 		nb = -nb;
 		*isneg = 1;
 	}
@@ -33,13 +40,13 @@ char				*ft_itoa(int n)
 	int				isneg;
 	char			*str;
 
+	if (n == -2147483648)
+		return (str = ft_strdup("-2147483648"));
+	if (n == 0)
+		return (str = ft_strdup("0"));
 	len = ft_getlen(n, &isneg);
 	if (!(str = (char*)malloc(sizeof(*str) * (len + isneg + 1))))
 		return (NULL);
-	if (n == -2147483648)
-		return (str = "-2147483648\0");
-	if (n == 0)
-		return (str = "0\0");
 	if (isneg)
 	{
 		*str++ = '-';

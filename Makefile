@@ -88,18 +88,16 @@ CC		=	gcc
 
 CFLAGS	=	-Wall -Werror -Wextra -c
 
-LIB		=	-L libft.h
+LIB		=	libft.h
 
 RM		=	rm -f
 
 CLEAN	=	clean
 
-all		:
-			@echo "Compilation in progress..."
-			@make $(NAME)
+all		:	$(NAME)	
 
-$(NAME)	:	$(OBJS)
-			@$(CC) $(CFLAGS) $(SRCS) $(LIB)
+$(NAME)	:	$(OBJS) $(LIB)
+			@$(CC) $(CFLAGS) $(SRCS) -I $(LIB)
 			@ar rc $(NAME) $(OBJS)
 			@ranlib $(NAME)
 			@echo "The libft.a file has been successfully created."
@@ -113,5 +111,3 @@ fclean	:	clean
 			@echo "The libft.a file has been deleted."
 
 re		:	fclean all
-
-$(V).SILENT:

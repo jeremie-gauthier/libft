@@ -1,13 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncasecmp.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/07 11:36:32 by jergauth          #+#    #+#             */
+/*   Updated: 2018/11/09 14:30:45 by jergauth         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int		ft_strncasecmp(const char *s1, const char *s2, size_t n)
 {
-	char	*a;
-	char	*b;
-
-	a = ft_strdup(s1);
-	b = ft_strdup(s2);
-	a = ft_strlowcase(a);
-	b = ft_strlowcase(b);
-	return (ft_strncmp(a, b, n));
+	while (*s1 && *s2 && n > 0)
+	{
+		if (*s1 != *s2 && *s1 - 32 != *s2 && *s1 + 32 != *s2)
+			return ((unsigned char)*s1 - (unsigned char)*s2);
+		s1++;
+		s2++;
+		n--;
+	}
+	if (n == 0)
+		return (0);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
