@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:35:28 by jergauth          #+#    #+#             */
-/*   Updated: 2018/11/08 11:40:33 by jergauth         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:55:11 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len;
 
 	if (!s1 && s2)
-		return ((char*)s2);
+		return (ft_strdup((char*)s2));
 	if (!s2 && s1)
-		return ((char*)s1);
+		return (ft_strdup((char*)s1));
 	if (!s1 && !s2)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
