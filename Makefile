@@ -79,7 +79,8 @@ SRCS	=	ft_memset.c		\
 			ft_strndup.c	\
 			ft_printtab.c	\
 			ft_strrev.c	\
-			ft_strlcpy.c
+			ft_strlcpy.c	\
+			get_next_line.c
 
 
 OBJS	=	$(SRCS:.c=.o)
