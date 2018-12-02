@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2018/11/21 15:32:59 by jergauth         ###   ########.fr       */
+/*   Updated: 2018/12/02 15:46:29 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,9 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 void				ft_printtab(char **tab);
 void				ft_strrev(char *s);
 int					get_next_line(const int fd, char **line);
+void				print_bits(unsigned char c);
+void				ft_putchar_err(char c);
+void				ft_putstr_err(char *str);
+void				ft_putendl_err(char *str);
 
 #endif

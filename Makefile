@@ -80,7 +80,11 @@ SRCS	=	ft_memset.c		\
 			ft_printtab.c	\
 			ft_strrev.c	\
 			ft_strlcpy.c	\
-			get_next_line.c
+			get_next_line.c	\
+			print_bits.c	\
+			ft_putchar_err.c	\
+			ft_putstr_err.c	\
+			ft_putendl_err.c
 
 
 OBJS	=	$(SRCS:.c=.o)
