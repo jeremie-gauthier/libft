@@ -6,9 +6,11 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 15:42:03 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/02 15:42:56 by jergauth         ###   ########.fr       */
+/*   Updated: 2018/12/02 15:48:28 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_putchar_err(char c)
 {
