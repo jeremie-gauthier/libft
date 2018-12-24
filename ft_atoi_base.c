@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/24 16:16:41 by jergauth          #+#    #+#             */
+/*   Updated: 2018/12/24 16:16:42 by jergauth         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int		in_base(const char c, int base)
@@ -29,6 +41,8 @@ int		ft_atoi_base(const char *str, int base)
 	int	res;
 	int	isneg;
 
+	if (base <= 1 && base > 36)
+		return (0);
 	res = 0;
 	isneg = 0;
 	while ((*str >= 9 && *str <= 13) || *str == ' ')
