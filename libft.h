@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/02 15:48:07 by jergauth         ###   ########.fr       */
+/*   Updated: 2018/12/25 17:59:26 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,9 @@ void				print_bits(unsigned char c);
 void				ft_putchar_err(char c);
 void				ft_putstr_err(char *str);
 void				ft_putendl_err(char *str);
+void				ft_swap(int *a, int *b);
+char				*ft_itoa_base(int nb, int base);
+int					*ft_range(int start, int end);
+void				putnbr_base(int n, int base);
 
 #endif

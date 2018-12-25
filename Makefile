@@ -84,7 +84,11 @@ SRCS	=	ft_memset.c		\
 			print_bits.c	\
 			ft_putchar_err.c	\
 			ft_putstr_err.c	\
-			ft_putendl_err.c
+			ft_putendl_err.c	\
+			ft_swap.c	\
+			ft_itoa_base.c	\
+			ft_range.c	\
+			putnbr_base.c
 
 
 OBJS	=	$(SRCS:.c=.o)
