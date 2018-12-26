@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/25 17:59:26 by jergauth         ###   ########.fr       */
+/*   Updated: 2018/12/26 15:25:56 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,6 @@ void				ft_swap(int *a, int *b);
 char				*ft_itoa_base(int nb, int base);
 int					*ft_range(int start, int end);
 void				putnbr_base(int n, int base);
+char				*ft_uitoa_base(unsigned int nb, int base);
 
 #endif
