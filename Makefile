@@ -89,7 +89,13 @@ SRCS	=	ft_memset.c		\
 			ft_itoa_base.c	\
 			ft_range.c	\
 			putnbr_base.c	\
-			ft_uitoa_base.c
+			ft_uitoa_base.c	\
+			putunbr_base.c	\
+			putlnbr_base.c	\
+			putulnbr_base.c	\
+			putllnbr_base.c	\
+			putullnbr_base.c	\
+			ft_atol_base.c
 
 
 OBJS	=	$(SRCS:.c=.o)

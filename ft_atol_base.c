@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_atol_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/24 16:16:41 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/26 19:32:08 by jergauth         ###   ########.fr       */
+/*   Created: 2018/12/26 19:18:38 by jergauth          #+#    #+#             */
+/*   Updated: 2018/12/26 19:31:40 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ static int	in_base(const char c, int base)
 	return (0);
 }
 
-int			ft_atoi_base(const char *str, int base)
+long		ft_atol_base(const char *str, int base)
 {
-	int	res;
-	int	isneg;
+	long	res;
+	int		isneg;
 
 	if (base <= 1 && base > 36)
 		return (0);
