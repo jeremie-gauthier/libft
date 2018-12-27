@@ -6,17 +6,17 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:20:57 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/26 15:24:53 by jergauth         ###   ########.fr       */
+/*   Updated: 2018/12/27 19:34:14 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_uitoa_base(unsigned int nb, int base)
+char	*ft_uitoa_base(uintptr_t nb, int base)
 {
-	char			*str;
-	int				len;
-	unsigned int	n;
+	char		*str;
+	int			len;
+	uintptr_t	n;
 
 
 	if (base <= 1 && base > 16)
