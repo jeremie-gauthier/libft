@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putullnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_ultoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/26 19:28:30 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/28 19:29:46 by jergauth         ###   ########.fr       */
+/*   Created: 2018/12/28 19:30:19 by jergauth          #+#    #+#             */
+/*   Updated: 2018/12/28 19:41:53 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	putullnbr_base(unsigned long long n, unsigned int base)
+char	*ft_ultoa_base(unsigned long nb, short base)
 {
-	if (base > 1 && base <= 16)
+	char			*str;
+	int				len;
+	unsigned long	n;
+
+	if (base <= 1 && base > 16)
+		return (NULL);
+	len = 1;
+	n = nb;
+	while ((n /= base) > 0)
+		len++;
+	if (!(str = (char*)malloc(sizeof(*str) * (len + 1))))
+		return (NULL);
+	str[len--] = '\0';
+	while (len >= 0)
 	{
-		if (n >= base)
-			putullnbr_base(n / base, base);
-		(n % base) > 9 ? ft_putchar(n % base + 55) : ft_putchar(n % base + 48);
+		str[len--] = (nb % base > 9) ? (nb % base) + 55 : (nb % base) + 48;
+		nb /= base;
 	}
+	return (str);
 }

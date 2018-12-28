@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/28 13:50:50 by jergauth         ###   ########.fr       */
+/*   Updated: 2018/12/28 19:34:26 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,11 +126,13 @@ int					*ft_range(int start, int end);
 void				putnbr_base(int n, int base);
 char				*ft_uitoa_base(uintptr_t nb, int base);
 void				putunbr_base(unsigned int n, unsigned int base);
-void				putlnbr_base(long int n, int base);
-void				putulnbr_base(unsigned long int n, unsigned int base);
-void				putllnbr_base(long long int n, int base);
-void				putullnbr_base(unsigned long long int n, unsigned int base);
+void				putlnbr_base(long n, short base);
+void				putulnbr_base(unsigned long n, unsigned int base);
+void				putllnbr_base(long long n, short base);
+void				putullnbr_base(unsigned long long n, unsigned int base);
 long				ft_atol_base(const char *str, int base);
 void				ft_putdouble(double d, unsigned short precision);
+char				*ft_ltoa_base(long nb, short base);
+char				*ft_ultoa_base(unsigned long nb, short base);
 
 #endif
