@@ -44,14 +44,14 @@ static void		round_this(double d, char *s)
 {
 	size_t	len;
 	size_t	ret;
-	size_t	ind;
+	int		ind;
 
 	len = ft_strlen(s);
 	ret = 1;
 	if ((d * 10) > 5.0)
 	{
 		ind = len - ret;
-		while (ind > 0)
+		while (ind >= 0)
 		{
 			ind = len - ret;
 			if (s[ind] + 1 != 58)
