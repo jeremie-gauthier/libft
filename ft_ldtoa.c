@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dtoa.c                                          :+:      :+:    :+:   */
+/*   ft_ldtoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/30 13:35:24 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/30 14:28:06 by jergauth         ###   ########.fr       */
+/*   Created: 2018/12/30 14:38:44 by jergauth          #+#    #+#             */
+/*   Updated: 2018/12/30 14:38:46 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char		*print_decimal_part(char *s, unsigned short p)
 	return (s);
 }
 
-static void		round_this(double d, char *s)
+static void		round_this(long double d, char *s)
 {
 	size_t	len;
 	size_t	ret;
@@ -77,10 +77,10 @@ static char		*join_free(char *s1, char *s2)
 	return (s1);
 }
 
-static char		*fill_str(double d, unsigned short precision, char *s)
+static char		*fill_str(long double d, unsigned short precision, char *s)
 {
 	char			*s2;
-	long			l;
+	long long		l;
 	unsigned short	p;
 
 	if (precision <= 0)
@@ -94,7 +94,7 @@ static char		*fill_str(double d, unsigned short precision, char *s)
 		while (p < precision + 2)
 		{
 			d *= 10;
-			l = (long)d;
+			l = (long long)d;
 			s2[p++] = l + 48;
 			d -= l;
 		}
@@ -104,13 +104,13 @@ static char		*fill_str(double d, unsigned short precision, char *s)
 	return (s);
 }
 
-char			*ft_dtoa(double d, unsigned short precision)
+char			*ft_ldtoa(long double d, unsigned short precision)
 {
-	long	l;
-	char	*s;
+	long long	l;
+	char		*s;
 
-	l = (long)d;
-	s = ft_ltoa_base(l, 10);
+	l = (long long)d;
+	s = ft_lltoa_base(l, 10);
 	d -= l;
 	s = fill_str(d, precision, s);
 	return (s);

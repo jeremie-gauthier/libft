@@ -133,6 +133,7 @@ void				putullnbr_base(unsigned long long n, unsigned int base);
 long				ft_atol_base(const char *str, int base);
 void				ft_putdouble(double d, unsigned short precision);
 char				*ft_dtoa(double d, unsigned short precision);
+char				*ft_ldtoa(long double d, unsigned short precision);
 char				*ft_ltoa_base(long nb, short base);
 char				*ft_ultoa_base(unsigned long nb, short base);
 char				*ft_lltoa_base(long long nb, short base);

@@ -101,7 +101,8 @@ SRCS	=	ft_memset.c		\
 			ft_ultoa_base.c	\
 			ft_lltoa_base.c	\
 			ft_ulltoa_base.c	\
-			ft_dtoa.c
+			ft_dtoa.c	\
+			ft_ldtoa.c
 
 
 OBJS	=	$(SRCS:.c=.o)
