@@ -108,9 +108,19 @@ char			*ft_dtoa(double d, unsigned short precision)
 {
 	long	l;
 	char	*s;
+	char	*tmp;
+	int		sign;
 
+	sign = (d < 0) ? 1 : 0;
+	d = (d < 0) ? -d : d;
 	l = (long)d;
 	s = ft_ltoa_base(l, 10);
+	tmp = s;
+	if (sign)
+	{
+		s = ft_strjoin("-", s);
+		ft_strdel(&tmp);
+	}
 	d -= l;
 	s = fill_str(d, precision, s);
 	return (s);
