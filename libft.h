@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/29 13:42:17 by jergauth         ###   ########.fr       */
+/*   Updated: 2018/12/30 13:36:53 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,8 +132,10 @@ void				putllnbr_base(long long n, short base);
 void				putullnbr_base(unsigned long long n, unsigned int base);
 long				ft_atol_base(const char *str, int base);
 void				ft_putdouble(double d, unsigned short precision);
+char				*ft_dtoa(double d, unsigned short precision);
 char				*ft_ltoa_base(long nb, short base);
 char				*ft_ultoa_base(unsigned long nb, short base);
 char				*ft_lltoa_base(long long nb, short base);
 char				*ft_ulltoa_base(unsigned long long nb, short base);
+
 #endif
