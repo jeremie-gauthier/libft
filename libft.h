@@ -138,5 +138,6 @@ char				*ft_ltoa_base(long nb, short base);
 char				*ft_ultoa_base(unsigned long nb, short base);
 char				*ft_lltoa_base(long long nb, short base);
 char				*ft_ulltoa_base(unsigned long long nb, short base);
+int					ft_abs(int nb);
 
 #endif
