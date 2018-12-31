@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/30 13:36:53 by jergauth         ###   ########.fr       */
+/*   Updated: 2018/12/31 15:02:24 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,5 +139,6 @@ char				*ft_ultoa_base(unsigned long nb, short base);
 char				*ft_lltoa_base(long long nb, short base);
 char				*ft_ulltoa_base(unsigned long long nb, short base);
 int					ft_abs(int nb);
+void				ft_putstr_unicode(char *str);
 
 #endif

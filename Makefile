@@ -103,8 +103,8 @@ SRCS	=	ft_memset.c		\
 			ft_ulltoa_base.c	\
 			ft_dtoa.c	\
 			ft_ldtoa.c	\
-			ft_abs.c
-
+			ft_abs.c	\
+			ft_putstr_unicode.c
 
 OBJS	=	$(SRCS:.c=.o)
 
