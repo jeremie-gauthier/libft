@@ -120,7 +120,7 @@ CLEAN	=	clean
 
 all		:	$(NAME)	
 
-$(NAME)	:	$(OBJS) $(LIB)
+$(NAME)	:	$(OBJS) $(LIB) Makefile
 			@$(CC) $(CFLAGS) $(SRCS) -I $(LIB)
 			@ar rc $(NAME) $(OBJS)
 			@ranlib $(NAME)
