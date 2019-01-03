@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putstr_unicode(char *str)
+void	ft_putstr_unicode(const char *str)
 {
 	write(1, str, ft_strlen(str));
 }

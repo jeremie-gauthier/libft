@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-char	*ft_uitoa_base(uintptr_t nb, int base)
+char	*ft_uitoa_base(unsigned int nb, int base)
 {
-	char		*str;
-	int			len;
-	uintptr_t	n;
+	char			*str;
+	int				len;
+	unsigned int	n;
 
 	if (base <= 1 && base > 16)
 		return (NULL);

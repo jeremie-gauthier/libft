@@ -124,7 +124,7 @@ void				ft_swap(int *a, int *b);
 char				*ft_itoa_base(int nb, int base);
 int					*ft_range(int start, int end);
 void				putnbr_base(int n, int base);
-char				*ft_uitoa_base(uintptr_t nb, int base);
+char				*ft_uitoa_base(unsigned int nb, int base);
 void				putunbr_base(unsigned int n, unsigned int base);
 void				putlnbr_base(long n, short base);
 void				putulnbr_base(unsigned long n, unsigned int base);
@@ -139,6 +139,6 @@ char				*ft_ultoa_base(unsigned long nb, short base);
 char				*ft_lltoa_base(long long nb, short base);
 char				*ft_ulltoa_base(unsigned long long nb, short base);
 int					ft_abs(int nb);
-void				ft_putstr_unicode(char *str);
+void				ft_putstr_unicode(const char *str);
 
 #endif
