@@ -21,6 +21,8 @@ char	*ft_lltoa_base(long long nb, short base)
 
 	if (base <= 1 && base > 16)
 		return (NULL);
+	if (nb < -9223372036854775807)
+		return (ft_strdup("-9223372036854775808"));
 	sign = (nb < 0 ? 1 : 0);
 	len = sign + 1;
 	nb = (sign == 1 ? -nb : nb);
