@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 15:43:07 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/02 15:44:13 by jergauth         ###   ########.fr       */
+/*   Updated: 2019/01/09 23:31:37 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_putstr_err(char *str)
 {
-	while (*str)
-	{
-		ft_putchar_err(*str);
-		str++;
-	}
+	if (str)
+		write(2, str, ft_strlen(str));
 }
