@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2018/12/31 15:02:24 by jergauth         ###   ########.fr       */
+/*   Updated: 2019/01/17 22:15:18 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ char				*ft_ultoa_base(unsigned long nb, short base);
 char				*ft_lltoa_base(long long nb, short base);
 char				*ft_ulltoa_base(unsigned long long nb, short base);
 int					ft_abs(int nb);
-void				ft_putstr_unicode(const char *str);
+int					brackets(char *str);
+int					cycle_detector(const t_list *list);
 
 #endif

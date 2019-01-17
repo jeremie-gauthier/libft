@@ -104,7 +104,8 @@ SRCS	=	ft_memset.c		\
 			ft_dtoa.c	\
 			ft_ldtoa.c	\
 			ft_abs.c	\
-			ft_putstr_unicode.c
+			brackets.c	\
+			cycle_detector.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -120,7 +121,7 @@ CLEAN	=	clean
 
 all		:	$(NAME)	
 
-$(NAME)	:	$(OBJS) $(LIB)
+$(NAME)	:	$(OBJS) $(LIB) Makefile
 			@$(CC) $(CFLAGS) $(SRCS) -I $(LIB)
 			@ar rc $(NAME) $(OBJS)
 			@ranlib $(NAME)
