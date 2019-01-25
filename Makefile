@@ -107,7 +107,8 @@ SRCS	=	ft_memset.c		\
 			brackets.c	\
 			cycle_detector.c	\
 			ft_tabdel.c	\
-			ft_strjoin_free.c
+			ft_strjoin_free.c	\
+			ft_strpbrk.c
 
 OBJS	=	$(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2019/01/21 17:07:53 by jergauth         ###   ########.fr       */
+/*   Updated: 2019/01/25 15:51:24 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +143,6 @@ int					brackets(char *str);
 int					cycle_detector(const t_list *list);
 void				ft_tabdel(void **tab, size_t size);
 char				*ft_strjoin_free(char *s1, char *s2);
+char				*ft_strpbrk(const char *s, const char *accept);
 
 #endif
