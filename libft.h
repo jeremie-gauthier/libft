@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2019/01/25 16:20:36 by jergauth         ###   ########.fr       */
+/*   Updated: 2019/01/26 18:10:55 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,5 +145,9 @@ void				ft_tabdel(void **tab, size_t size);
 char				*ft_strjoin_free(char *s1, char *s2);
 char				*ft_strpbrk(const char *s, const char *accept);
 int					ft_instr(const char c, const char *accept);
+char				*ft_strncpy_safe(char *dest, const char *src, size_t n);
+double				ft_pow_ten(double nb, int power);
+char				*ft_dtoa_concat(char *s, long l, int sign);
+char				*ft_ldtoa_concat(char *s, long long l, int sign);
 
 #endif

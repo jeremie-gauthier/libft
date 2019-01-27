@@ -109,7 +109,10 @@ SRCS	=	ft_memset.c		\
 			ft_tabdel.c	\
 			ft_strjoin_free.c	\
 			ft_strpbrk.c	\
-			ft_instr.c
+			ft_instr.c	\
+			ft_strncpy_safe.c	\
+			ft_pow_ten.c	\
+			ft_dtoa_concat.c
 
 OBJS	=	$(SRCS:.c=.o)
 
