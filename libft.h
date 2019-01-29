@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2019/01/26 18:10:55 by jergauth         ###   ########.fr       */
+/*   Updated: 2019/01/28 21:17:31 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,5 +149,9 @@ char				*ft_strncpy_safe(char *dest, const char *src, size_t n);
 double				ft_pow_ten(double nb, int power);
 char				*ft_dtoa_concat(char *s, long l, int sign);
 char				*ft_ldtoa_concat(char *s, long long l, int sign);
+void				*ft_memjoin(const void *first, size_t size_f,
+						const void *second, size_t size_s);
+void				*ft_memjoin_free(void *first, size_t size_f, void *second,
+						size_t size_s);
 
 #endif
