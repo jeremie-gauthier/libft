@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:38:37 by jergauth          #+#    #+#             */
-/*   Updated: 2018/11/12 12:33:47 by jergauth         ###   ########.fr       */
+/*   Updated: 2019/01/31 15:42:38 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,11 @@ char			**ft_strsplit(char const *s, char c)
 	{
 		while (*s == c)
 			s++;
-		tab[i] = ft_strcdup(s, c);
+		if (!(tab[i] = ft_strcdup(s, c)))
+		{
+			ft_tabdel(tab, i);
+			return (0);
+		}
 		while (*s != c && *s)
 			s++;
 		i++;
