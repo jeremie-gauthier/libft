@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 19:44:07 by jergauth          #+#    #+#             */
-/*   Updated: 2019/01/28 21:15:28 by jergauth         ###   ########.fr       */
+/*   Updated: 2019/01/31 15:44:02 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	*one_string_valid(const void *str, size_t size)
 	return ((void*)ptr);
 }
 
-void	*ft_memjoin(const void *first, size_t size_f, const void *second,
+void		*ft_memjoin(const void *first, size_t size_f, const void *second,
 				size_t size_s)
 {
 	char	*ptr;
