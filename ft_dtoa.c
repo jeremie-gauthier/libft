@@ -21,13 +21,7 @@ static char		*check_further(char *s, unsigned short precision, int *ret)
 	*ret = 0;
 	i = precision + 1;
 	if (s[i] >= '5' && i < max)
-	{
-		i++;
-		while (s[i] && s[i] == '0' && i < max)
-			i++;
-		if (s[i] && s[i] > 0 && i < max)
-			*ret = 1;
-	}
+		*ret = 1;
 	s[precision + 1] = '\0';
 	return (s);
 }

@@ -14,13 +14,13 @@
 
 char	*ft_strpbrk(const char *s, const char *accept)
 {
-	while (*s)
+	char	*tmp;
+
+	while (*accept)
 	{
-		if (ft_strchr(accept, *s))
-			return ((char*)s);
-		s++;
+		if ((tmp = ft_strchr(s, *accept)))
+			return (tmp);
+		accept++;
 	}
-	if (ft_strchr(accept, *s))
-		return ((char*)s);
 	return (NULL);
 }
