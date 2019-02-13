@@ -27,6 +27,12 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_stack
+{
+	int				nb;
+	struct s_stack	*next;
+}					t_stack;
+
 typedef struct		s_file
 {
 	int				fd;
@@ -86,12 +92,30 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+
+/*
+**	Linked lists
+*/
+
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+/*
+**	Stack
+*/
+
+t_stack				*ft_stack_new(int nb);
+void				ft_stack_del(t_stack **head);
+void				ft_stack_pop(t_stack **head, int nb);
+void				ft_stack_push_front(t_stack **head, t_stack *new);
+void				ft_stack_swap_top(t_stack **head);
+void				ft_stack_rotate(t_stack **head);
+void				ft_stack_rev_rotate(t_stack **head);
+void				ft_stack_print(t_stack *current);
 
 int					ft_isblank(int c);
 int					ft_iscntrl(int c);

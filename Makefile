@@ -114,7 +114,15 @@ SRCS	=	ft_memset.c		\
 			ft_pow_ten.c	\
 			ft_dtoa_concat.c	\
 			ft_memjoin.c	\
-			ft_memjoin_free.c
+			ft_memjoin_free.c	\
+			ft_stack_new.c	\
+			ft_stack_del.c	\
+			ft_stack_pop.c	\
+			ft_stack_push_front.c	\
+			ft_stack_swap_top.c	\
+			ft_stack_rotate.c	\
+			ft_stack_rev_rotate.c	\
+			ft_stack_print.c
 
 OBJS	=	$(SRCS:.c=.o)
 
