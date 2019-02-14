@@ -16,7 +16,7 @@ void	ft_stack_push_back(t_stack **head, t_stack *new)
 {
 	t_stack	*current;
 
-	if (head == NULL)
+	if (head == NULL || *head == NULL)
 		(*head) = new;
 	else
 	{

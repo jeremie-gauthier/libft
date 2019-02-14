@@ -29,6 +29,7 @@ void	ft_stack_pop(t_stack **head, int nb)
 			tmp = *head;
 			*head = (*head)->next;
 			tmp->nb = 0;
+			tmp->next = NULL;
 			ft_memdel((void*)&tmp);
 			i++;
 		}
