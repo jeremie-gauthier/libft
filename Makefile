@@ -171,7 +171,7 @@ $(DIR_O)/%.o: %.c
 			@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:	
-			@$(RM) $(OBJS) $(DIR_O)
+			@$(RM) $(DIR_O)
 			@echo "Libft		: *.o files have been deleted."
 
 fclean:		clean
