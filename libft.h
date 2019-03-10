@@ -51,6 +51,7 @@ typedef struct		s_btree
 	void			*data;
 	struct s_btree	*left;
 	struct s_btree	*right;
+	int				height;
 }					t_btree;
 
 size_t				ft_strlen(const char *str);
@@ -161,12 +162,16 @@ t_stack				*ft_stack_node_at(t_stack *head, unsigned int index);
 void				ft_stack_remove(t_stack **head, const unsigned int index);
 
 /*
-**	BINARY TREES
+**	BINARY TREES - AVL IMPLEMENTATION
 */
 
 t_btree				*btree_create_node(void *data);
-void				btree_insert_data(t_btree **root, void *item,
+void				btree_insert_data(t_btree **root, void *x,
 						int (*cmpf)(void *, void *));
+int					btree_height(t_btree *root);
+int					btree_balance_factor(t_btree *root);
+void				btree_rotate_right(t_btree **root);
+void				btree_rotate_left(t_btree **root);
 void				btree_apply_prefix_lr(t_btree *root, void (*applyf)(void *));
 void				btree_apply_prefix_rl(t_btree *root, void (*applyf)(void *));
 void				btree_apply_infix_lr(t_btree *root, void (*applyf)(void *));

@@ -145,6 +145,10 @@ SRCS	=	ft_memset.c		\
 			ft_nb_is_lower.c	\
 			btree_create_node.c	\
 			btree_insert_data.c	\
+			btree_height.c	\
+			btree_balance_factor.c	\
+			btree_rotate_right.c	\
+			btree_rotate_left.c	\
 			btree_apply_prefix_lr.c	\
 			btree_apply_prefix_rl.c	\
 			btree_apply_infix_lr.c	\
