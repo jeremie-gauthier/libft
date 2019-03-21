@@ -161,7 +161,24 @@ SRCS	=	ft_memset.c		\
 			btree_remove_node.c	\
 			btree_search_data.c	\
 			btree_level_count.c	\
-			btree_del.c
+			btree_del.c\
+			ft_printf/conv_double.c\
+			ft_printf/conv_numeric.c\
+			ft_printf/conv_ptr.c\
+			ft_printf/conv_str.c\
+			ft_printf/format_char.c\
+			ft_printf/format_comma.c\
+			ft_printf/format_flags.c\
+			ft_printf/format_numeric.c\
+			ft_printf/format_precision.c\
+			ft_printf/format_regular_op.c\
+			ft_printf/ft_printf.c\
+			ft_printf/ft_vprintf.c\
+			ft_printf/memory.c\
+			ft_printf/parse_color.c\
+			ft_printf/parse_flag.c\
+			ft_printf/parse_format.c\
+			ft_printf/select_conversion.c
 
 DIR_O	=	temporary
 
@@ -187,7 +204,8 @@ $(NAME):	$(OBJS) $(LIB) Makefile
 
 $(DIR_O)/%.o: %.c
 			@mkdir -p temporary
-			@$(CC) $(CFLAGS) -o $@ -c $<
+			@mkdir -p temporary/ft_printf
+			@$(CC) $(CFLAGS) -I . -o $@ -c $<
 
 clean:	
 			@$(RM) $(DIR_O)
