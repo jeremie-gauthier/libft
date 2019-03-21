@@ -6,7 +6,7 @@
 /*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:39:54 by jergauth          #+#    #+#             */
-/*   Updated: 2019/01/28 21:17:31 by jergauth         ###   ########.fr       */
+/*   Updated: 2019/03/21 16:32:22 by jergauth         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 typedef enum		e_bool
 {
-	false,
-	true
+	false = 0,
+	true = 1
 }					t_bool;
 
 typedef struct		s_list
