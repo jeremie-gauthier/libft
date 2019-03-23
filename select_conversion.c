@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /*
 **	Capital letters "DIOU" are treated as "diou" with 'l' (long) flag.

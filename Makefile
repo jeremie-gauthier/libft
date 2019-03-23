@@ -162,23 +162,23 @@ SRCS	=	ft_memset.c		\
 			btree_search_data.c	\
 			btree_level_count.c	\
 			btree_del.c\
-			ft_printf/conv_double.c\
-			ft_printf/conv_numeric.c\
-			ft_printf/conv_ptr.c\
-			ft_printf/conv_str.c\
-			ft_printf/format_char.c\
-			ft_printf/format_comma.c\
-			ft_printf/format_flags.c\
-			ft_printf/format_numeric.c\
-			ft_printf/format_precision.c\
-			ft_printf/format_regular_op.c\
-			ft_printf/ft_printf.c\
-			ft_printf/ft_vprintf.c\
-			ft_printf/memory.c\
-			ft_printf/parse_color.c\
-			ft_printf/parse_flag.c\
-			ft_printf/parse_format.c\
-			ft_printf/select_conversion.c
+			conv_double.c\
+			conv_numeric.c\
+			conv_ptr.c\
+			conv_str.c\
+			format_char.c\
+			format_comma.c\
+			format_flags.c\
+			format_numeric.c\
+			format_precision.c\
+			format_regular_op.c\
+			ft_printf.c\
+			ft_vprintf.c\
+			memory.c\
+			parse_color.c\
+			parse_flag.c\
+			parse_format.c\
+			select_conversion.c
 
 DIR_O	=	temporary
 
@@ -204,8 +204,7 @@ $(NAME):	$(OBJS) $(LIB) Makefile
 
 $(DIR_O)/%.o: %.c
 			@mkdir -p temporary
-			@mkdir -p temporary/ft_printf
-			@$(CC) $(CFLAGS) -I . -o $@ -c $<
+			@$(CC) $(CFLAGS) -I. -o $@ -c $<
 
 clean:	
 			@$(RM) $(DIR_O)
