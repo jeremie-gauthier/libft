@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_addr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmoulini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 11:20:42 by jergauth          #+#    #+#             */
-/*   Updated: 2018/11/07 11:20:46 by jergauth         ###   ########.fr       */
+/*   Created: 2019/04/19 13:42:50 by cmoulini          #+#    #+#             */
+/*   Updated: 2019/04/19 13:42:52 by cmoulini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+t_list	*ft_lstnew_addr(void *content)
 {
-	t_list	*tmp;
+	t_list	*node;
 
-	while (*alst)
-	{
-		tmp = (*alst)->next;
-		if (del)
-			del((*alst)->content, (*alst)->content_size);
-		ft_memdel((void*)&(*alst));
-		*alst = tmp;
-	}
-	*alst = NULL;
+	if (!(node = (t_list*)malloc(sizeof(*node))))
+		return (NULL);
+	node->content = content;
+	node->content_size = 0;
+	node->next = NULL;
+	return (node);
 }

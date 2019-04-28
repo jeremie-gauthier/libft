@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmoulini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 11:20:42 by jergauth          #+#    #+#             */
-/*   Updated: 2018/11/07 11:20:46 by jergauth         ###   ########.fr       */
+/*   Created: 2019/04/19 13:43:16 by cmoulini          #+#    #+#             */
+/*   Updated: 2019/04/19 13:43:18 by cmoulini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_lstadd_back(t_list **head, t_list *new)
 {
-	t_list	*tmp;
+	t_list	*current;
 
-	while (*alst)
+	if (head == NULL || *head == NULL)
+		*head = new;
+	else
 	{
-		tmp = (*alst)->next;
-		if (del)
-			del((*alst)->content, (*alst)->content_size);
-		ft_memdel((void*)&(*alst));
-		*alst = tmp;
+		current = *head;
+		while (current->next)
+			current = current->next;
+		current->next = new;
 	}
-	*alst = NULL;
 }

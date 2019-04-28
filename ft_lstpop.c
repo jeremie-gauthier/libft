@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_lstpop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmoulini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/21 14:22:04 by jergauth          #+#    #+#             */
-/*   Updated: 2019/03/21 14:22:05 by jergauth         ###   ########.fr       */
+/*   Created: 2019/04/19 13:41:57 by cmoulini          #+#    #+#             */
+/*   Updated: 2019/04/19 13:41:59 by cmoulini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strcspn(const char *s, const char *reject)
+void	ft_lstpop(t_list **head)
 {
-	size_t	len;
+	t_list	*tmp;
 
-	len = 0;
-	if (s && reject)
+	if (*head)
 	{
-		while (*s && !ft_strchr(reject, *s))
-		{
-			len++;
-			s++;
-		}
+		tmp = *head;
+		*head = (*head)->next;
+		tmp->content = NULL;
+		tmp->content_size = 0;
+		tmp->next = NULL;
+		ft_memdel((void*)tmp);
 	}
-	return (len);
 }

@@ -17,7 +17,6 @@ SRCS	=	ft_memset.c		\
 			ft_strchr.c		\
 			ft_strrchr.c	\
 			ft_strspn.c		\
-			ft_strcspn.c	\
 			ft_strstr.c		\
 			ft_strnstr.c	\
 			ft_strcmp.c		\
@@ -56,6 +55,7 @@ SRCS	=	ft_memset.c		\
 			ft_putendl_fd.c	\
 			ft_putnbr_fd.c	\
 			ft_lstnew.c		\
+			ft_lstnew_addr.c\
 			ft_lstdelone.c	\
 			ft_lstdel.c		\
 			ft_lstadd.c		\
@@ -80,6 +80,7 @@ SRCS	=	ft_memset.c		\
 			ft_strncasecmp.c	\
 			ft_strcasestr.c	\
 			ft_strndup.c	\
+			ft_strcdup.c	\
 			ft_printtab.c	\
 			ft_strrev.c	\
 			ft_strlcpy.c	\
@@ -178,7 +179,9 @@ SRCS	=	ft_memset.c		\
 			parse_color.c\
 			parse_flag.c\
 			parse_format.c\
-			select_conversion.c
+			select_conversion.c\
+			ft_lstadd_back.c\
+			ft_lstpop.c
 
 DIR_O	=	temporary
 

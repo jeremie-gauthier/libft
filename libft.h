@@ -59,6 +59,9 @@ typedef struct		s_buf
 
 typedef struct		s_flags
 {
+	int				prc;
+	int				pad;
+	char			c;
 	unsigned short	hh	: 1;
 	unsigned short	h	: 1;
 	unsigned short	l	: 1;
@@ -71,9 +74,6 @@ typedef struct		s_flags
 	unsigned short	sp	: 1;
 	unsigned short	com	: 1;
 	unsigned short	base: 5;
-	int				prc;
-	int				pad;
-	char			c;
 }					t_flags;
 
 typedef enum		e_bool
@@ -91,22 +91,22 @@ typedef struct		s_list
 
 typedef struct		s_stack
 {
-	int				nb;
 	struct s_stack	*next;
+	int				nb;
 }					t_stack;
 
 typedef struct		s_file
 {
-	int				fd;
-	char			*str;
 	struct s_file	*next;
+	char			*str;
+	int				fd;
 }					t_file;
 
 typedef struct		s_btree
 {
-	void			*data;
 	struct s_btree	*left;
 	struct s_btree	*right;
+	void			*data;
 	int				height;
 }					t_btree;
 
@@ -133,8 +133,8 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 size_t				ft_strspn(const char *s, const char *accept);
-size_t				ft_strcspn(const char *s, const char *reject);
 void				ft_bzero(void *s, size_t n);
+char				*ft_strcdup(const char *str, const char limit);
 
 /*
 **	Memory functions
@@ -181,11 +181,14 @@ void				ft_putnbr_fd(int n, int fd);
 */
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
+t_list				*ft_lstnew_addr(void *content);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstadd_back(t_list **head, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				ft_lstpop(t_list **head);
 
 /*
 **	Stack
@@ -313,40 +316,43 @@ int					ft_nb_is_lower(int nb, int ref);
 **	FT_PRINTF
 */
 
-int				ft_printf(const char *format, ...);
-int				ft_sprintf(char *str, const char *format, ...);
-int				ft_snprintf(char *s, size_t size, const char *format, ...);
-int				ft_dprintf(int fd, const char *format, ...);
-int				ft_vprintf(const char *format, va_list ap);
-int				ft_vsprintf(char *s, const char *format, va_list ap);
-int				ft_vsnprintf(char *s, size_t size, const char *format,
-					va_list ap);
-int				ft_vdprintf(int fd, const char *format, va_list ap);
-t_buf			*init_buf(void);
-t_flags			*init_flags(void);
-void			add_flag(const char c, t_flags *fl);
-int				parse_format(const char **format, t_buf *buf);
-int				parse_flags(const char **format, t_buf *buf, va_list ap);
-int				ft_parse_color(const char **format, t_buf *buf);
-void			redirection_conversion(t_flags *fl);
-int				conversion(t_flags *fl, t_buf *buf, va_list ap);
-int				ft_conv_numeric(t_flags *fl, t_buf *buf, va_list ap);
-int				ft_conv_double(t_flags *fl, t_buf *buf, va_list ap);
-int				ft_conv_str(t_flags *fl, t_buf *buf, va_list ap);
-int				ft_conv_ptr(t_flags *fl, t_buf *buf, va_list ap);
-int				ft_format_flag(t_flags *fl, char **conv);
-int				ft_format_prc(t_flags *fl, char **conv, int *len);
-int				ft_zero_value_numeric_conv_zero_prc(t_flags *fl, char **conv);
-int				ft_format_plus_space(t_flags *fl, char **conv, int sign);
-int				compute_padding_len(t_flags *fl, int len, int sign);
-int				ft_format_padding(t_flags *fl, char **conv, int len, int sign);
-int				ft_format_diese(t_flags *fl, char **conv);
-int				ft_format_char(t_flags *fl, t_buf *buf, unsigned char c);
-int				ft_format_str(t_flags *fl, char **conv, int len, t_buf *buf);
-int				dieze_position(t_flags *fl, char **conv, int len, int sign);
-int				plus_position(t_flags *fl, char **conv, int len, int sign);
-int				format_sign(t_flags *fl, char **conv, int len, int sign);
-int				format_no_sign(t_flags *fl, char **conv, int len, int sign);
-int				ft_format_comma(t_flags *fl, char **conv);
+int					ft_printf(const char *format, ...);
+int					ft_sprintf(char *str, const char *format, ...);
+int					ft_snprintf(char *s, size_t size, const char *format, ...);
+int					ft_dprintf(int fd, const char *format, ...);
+int					ft_vprintf(const char *format, va_list ap);
+int					ft_vsprintf(char *s, const char *format, va_list ap);
+int					ft_vsnprintf(char *s, size_t size, const char *format,
+						va_list ap);
+int					ft_vdprintf(int fd, const char *format, va_list ap);
+t_buf				*init_buf(void);
+t_flags				*init_flags(void);
+void				add_flag(const char c, t_flags *fl);
+int					parse_format(const char **format, t_buf *buf);
+int					parse_flags(const char **format, t_buf *buf, va_list ap);
+int					ft_parse_color(const char **format, t_buf *buf);
+void				redirection_conversion(t_flags *fl);
+int					conversion(t_flags *fl, t_buf *buf, va_list ap);
+int					ft_conv_numeric(t_flags *fl, t_buf *buf, va_list ap);
+int					ft_conv_double(t_flags *fl, t_buf *buf, va_list ap);
+int					ft_conv_str(t_flags *fl, t_buf *buf, va_list ap);
+int					ft_conv_ptr(t_flags *fl, t_buf *buf, va_list ap);
+int					ft_format_flag(t_flags *fl, char **conv);
+int					ft_format_prc(t_flags *fl, char **conv, int *len);
+int					ft_zero_value_numeric_conv_zero_prc(t_flags *fl,
+						char **conv);
+int					ft_format_plus_space(t_flags *fl, char **conv, int sign);
+int					compute_padding_len(t_flags *fl, int len, int sign);
+int					ft_format_padding(t_flags *fl, char **conv, int len,
+						int sign);
+int					ft_format_diese(t_flags *fl, char **conv);
+int					ft_format_char(t_flags *fl, t_buf *buf, unsigned char c);
+int					ft_format_str(t_flags *fl, char **conv, int len,
+						t_buf *buf);
+int					dieze_position(t_flags *fl, char **conv, int len, int sign);
+int					plus_position(t_flags *fl, char **conv, int len, int sign);
+int					format_sign(t_flags *fl, char **conv, int len, int sign);
+int					format_no_sign(t_flags *fl, char **conv, int len, int sign);
+int					ft_format_comma(t_flags *fl, char **conv);
 
 #endif
