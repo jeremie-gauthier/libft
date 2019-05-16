@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_arrjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jergauth <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/16 13:00:34 by jergauth          #+#    #+#             */
+/*   Updated: 2019/05/16 13:00:44 by jergauth         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	sum_len_words(const char **arr)
@@ -13,7 +25,7 @@ static size_t	sum_len_words(const char **arr)
 	return (sum);
 }
 
-char	*ft_arrjoin(const char **arr, const int glue)
+char			*ft_arrjoin(const char **arr, const int glue)
 {
 	char	*str;
 	size_t	len;
@@ -31,4 +43,3 @@ char	*ft_arrjoin(const char **arr, const int glue)
 	*(str - 1) = '\0';
 	return (str - len);
 }
-
